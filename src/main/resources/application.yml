@@ -1,0 +1,30 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: cloud-hystrix
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
